@@ -32,9 +32,10 @@ const gameEngine = () => {
     snakeElement = document.createElement("div");
     snakeElement.style.gridRowStart = e.y;
     snakeElement.style.gridColumnStart = e.x;
-    snakeElement.classList.add("snake");
     if(index===0){
         snakeElement.classList.add("head");
+    }else{
+        snakeElement.classList.add("snake");
     }
     board.appendChild(snakeElement);
   });
@@ -49,3 +50,33 @@ const gameEngine = () => {
 
 //Main Logic starts here
 window.requestAnimationFrame(main);
+window.addEventListener('keydown',e=>{
+    let= inputDir={x:0,y:1} //start the game
+    moveSound.play();
+    switch (e.key) {
+        case "ArrowUp":
+            console.log("Arrow up pressed");
+            inputDir.x=0;
+            inputDir.y=-1;
+            break;
+
+        case "ArrowDown":
+            console.log("Arrow down pressed");
+            inputDir.x=0;
+            inputDir.y=1;
+            break;
+        case "ArrowLeft":
+            console.log("Arrow left pressed");
+            inputDir.x=-1;
+            inputDir.y=0;
+            break;
+        case "ArrowRight":
+            console.log("Arrow right pressed");
+            inputDir.x=1;
+            inputDir.y=0;
+            break;
+    
+        default:
+            break;
+    }
+})
